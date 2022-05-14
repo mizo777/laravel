@@ -30,5 +30,19 @@ services:
     volumes:
       - db-store:/var/lib/mysql
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: ${DB_HOST}
+      PMA_USER: ${DB_USER}
+      PMA_PASSWORD: ${DB_PASSWORD}
+    links:
+      - db
+    ports:
+      - 8000:80
+    volumes:
+      - /sessions
+
 volumes:
   db-store:
