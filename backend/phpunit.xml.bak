@@ -25,7 +25,7 @@
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
         <server name="DB_DATABASE" value="test_laravel_db"/>
-        <server name="DB_USERNAME" value="larabel"/>
+        <server name="DB_USERNAME" value="laravel"/>
         <server name="DB_PASSWORD" value="laravel"/>
     </php>
 </phpunit>
