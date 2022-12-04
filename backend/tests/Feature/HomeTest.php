@@ -2,20 +2,21 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\User;
 
-class ExampleTest extends TestCase
+class HomeTest extends TestCase
 {
     /**
-     * A basic test example.
+     * トップページ表示内容テスト
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testIndex()
     {
         $user = factory(User::class)->create();
+        // $user = User::find(1);
         $response = $this
             ->actingAs($user)
             ->get('/');

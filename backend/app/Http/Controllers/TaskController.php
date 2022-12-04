@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 use App\Folder;
 use App\Task;
@@ -17,7 +18,6 @@ class TaskController extends Controller
         $folders = Auth::user()->folders()->get();
         $current_folder = Folder::find($id);
         $tasks = $current_folder->tasks()->get();
-
 
         return view('tasks/index', [
             'folders' => $folders,
@@ -38,8 +38,9 @@ class TaskController extends Controller
         $current_folder = Folder::find($id);
 
         $task = new Task();
-        $task->title = $request->title;
+        $task->title    = $request->title;
         $task->due_date = $request->due_date;
+        $task->status   = 1;
 
         $current_folder->tasks()->save($task);
 
