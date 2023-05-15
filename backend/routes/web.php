@@ -24,8 +24,12 @@ Route::group(['middleware' => 'auth'], function(){
     // Folder
     Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');
     Route::post('/folders/create', 'FolderController@create');
+
 });
 Auth::routes();
+
+Route::get('fenril', 'FenrilController@index')->name('fenril');
+
 
 Route::get('/mail','TestMailController@index');
 
